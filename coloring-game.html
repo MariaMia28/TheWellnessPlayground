@@ -4,31 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coloring</title>
+    <style>
+        #canvas-container {
+            display: none;
+            text-align: center;
+        }
+
+        #canvas {
+            margin-top: auto;
+        }
+
+        #colorPalette {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+
+        .palette-color {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        
+    </style>
 </head>
 <body>
-    <div id="quiz">
-        <h2 id="question">What are your feelings right now? </h2>
-        <h3>Choose the 3 main ones:</h3>
+    <div >
+        <h2 id="question">What are your feelings right now?<br>Choose the 3 main ones:</br></h2>
+       
         <ul>
             <li>
                 <input type="checkbox" name="answer" id="yellow" class="answer">
                 <label for="yellow" id="yellow_text">Happiness</label>
             </li>
+            
             <li>
                 <input type="checkbox" name="answer" id="purple" class="answer">
                 <label for="purple" id="purple_text">Anxiety</label>
             </li>
-
             <li>
                 <input type="checkbox" name="answer" id="blue" class="answer">
                 <label for="blue" id="blue_text">Sadness</label>
             </li>
-
             <li>
                 <input type="checkbox" name="answer" id="green" class="answer">
                 <label for="green" id="green_text">Peace</label>
             </li>
-
             <li>
                 <input type="checkbox" name="answer" id="red" class="answer">
                 <label for="red" id="red_text">Anger</label>
@@ -48,10 +73,12 @@
         </ul>
         <button id="submitQuiz">Submit</button>
     </div>
-    <canvas id="canvas"></canvas>
-    <div id="colorPalette">
-
+    
+    <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+        <div id="colorPalette"></div>
     </div>
+
     <script src="coloring-game-script.js"></script>
 </body>
 </html>
