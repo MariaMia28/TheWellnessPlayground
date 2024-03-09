@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coloring</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+            cursor: crosshair;
+        }
+    </style>
 </head>
 <body>
-    <div id="quiz">
-        <h2 id="question">What are your feelings right now? </h2>
+    <div allign="left" id="quiz">
+        <h2 id="question">What are your feelings right now?</h2>
         <h3>Choose the 3 main ones:</h3>
         <ul>
             <li>
@@ -18,17 +24,14 @@
                 <input type="checkbox" name="answer" id="purple" class="answer">
                 <label for="purple" id="purple_text">Anxiety</label>
             </li>
-
             <li>
                 <input type="checkbox" name="answer" id="blue" class="answer">
                 <label for="blue" id="blue_text">Sadness</label>
             </li>
-
             <li>
                 <input type="checkbox" name="answer" id="green" class="answer">
                 <label for="green" id="green_text">Peace</label>
             </li>
-
             <li>
                 <input type="checkbox" name="answer" id="red" class="answer">
                 <label for="red" id="red_text">Anger</label>
@@ -46,12 +49,125 @@
                 <label for="pink" id="pink_text">Confidence</label>
             </li>
         </ul>
-        <button id="submitQuiz">Submit</button>
+        <button type="button" onclick="showPalette()" id="submitQuiz">Submit</button>
     </div>
-    <canvas id="canvas"></canvas>
-    <div id="colorPalette">
 
-    </div>
-    <script src="coloring-game-script.js"></script>
+    <canvas id="canvas" width="600" height="450"></canvas>
+
+    <script>
+        var selectedColors = [];
+
+        function showPalette() {
+            var checkboxes = document.querySelectorAll('.answer:checked');
+            
+            if (checkboxes.length !== 3) {
+                alert('Select exactly 3 emotions!');
+                return;
+            }
+
+            selectedColors = Array.from(checkboxes).map(function (checkbox) {
+                return getColorForEmotion(checkbox.id);
+            });
+
+            drawPalette();
+        }
+ document.addEventListener('DOMContentLoaded', function() {
+    var checkboxes = document.querySelectorAll('.answer');
+    
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            var checkedCount = document.querySelectorAll('.answer:checked').length;
+            
+            if (checkedCount > 3) {
+                checkbox.checked = false;
+                alert('Select at most 3 emotions!');
+            }
+        });
+    });
+
+    document.getElementById('submitQuiz');
+});
+
+        function getColorForEmotion(emotion) {
+            switch (emotion) {
+                case 'yellow':
+                    return '#FFFF00';
+                case 'purple':
+                    return '#800080';
+                case 'blue':
+                    return '#0000FF';
+                case 'green':
+                    return '#008000';
+                case 'red':
+                    return '#FF0000';
+                case 'orange':
+                    return '#FFA500';
+                case 'grey':
+                    return '#808080';
+                case 'pink':
+                    return '#FFC0CB';
+                default:
+                    return '#FFFFFF';
+            }
+        }
+
+        function drawPalette() {
+            var palette = document.createElement('div');
+            palette.id = 'colorPalette';
+            palette.style.marginTop = '20px';
+
+            selectedColors.forEach(function (color) {
+                var colorDiv = document.createElement('div');
+                colorDiv.className = 'color';
+                colorDiv.style.backgroundColor = color;
+                colorDiv.style.width = '50px';
+                colorDiv.style.height = '50px';
+                colorDiv.style.display = 'inline-block';
+                colorDiv.style.marginRight = '10px';
+                colorDiv.style.cursor = 'pointer';
+
+                colorDiv.addEventListener('click', function () {
+                    currentColor = color;
+                });
+
+                palette.appendChild(colorDiv);
+            });
+
+            document.body.appendChild(palette);
+        }
+
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var isDrawing = false;
+        var currentColor = '';
+
+        canvas.addEventListener('mousedown', function (event) {
+            isDrawing = true;
+            draw(event);
+        });
+
+        canvas.addEventListener('mousemove', function (event) {
+            if (isDrawing) {
+                draw(event);
+            }
+        });
+
+        canvas.addEventListener('mouseup', function () {
+            isDrawing = false;
+        });
+
+        function draw(event) {
+            if (!currentColor) {
+                alert('Select a color from the palette!');
+                return;
+            }
+
+            var x = event.offsetX;
+            var y = event.offsetY;
+
+            context.fillStyle = currentColor;
+            context.fillRect(x, y, 5, 5);
+        }
+    </script>
 </body>
 </html>
