@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coloring</title>
+</head>
+<body>
+    <div id="quiz">
+        <h2 id="question">What are your feelings right now? </h2>
+        <h3>Choose the 3 main ones:</h3>
+        <ul>
+            <li>
+                <input type="checkbox" name="answer" id="yellow" class="answer">
+                <label for="yellow" id="yellow_text">Happiness</label>
+            </li>
+            <li>
+                <input type="checkbox" name="answer" id="purple" class="answer">
+                <label for="purple" id="purple_text">Anxiety</label>
+            </li>
+
+            <li>
+                <input type="checkbox" name="answer" id="blue" class="answer">
+                <label for="blue" id="blue_text">Sadness</label>
+            </li>
+
+            <li>
+                <input type="checkbox" name="answer" id="green" class="answer">
+                <label for="green" id="green_text">Peace</label>
+            </li>
+
+            <li>
+                <input type="checkbox" name="answer" id="red" class="answer">
+                <label for="red" id="red_text">Anger</label>
+            </li>
+            <li>
+                <input type="checkbox" name="answer" id="orange" class="answer">
+                <label for="orange" id="orange_text">Excitement</label>
+            </li>
+            <li>
+                <input type="checkbox" name="answer" id="grey" class="answer">
+                <label for="grey" id="grey_text">Loneliness</label>
+            </li>
+            <li>
+                <input type="checkbox" name="answer" id="pink" class="answer">
+                <label for="pink" id="pink_text">Confidence</label>
+            </li>
+        </ul>
+        <button id="submitQuiz">Submit</button>
+    </div>
+    <canvas id="canvas"></canvas>
+    <div id="colorPalette">
+
+    </div>
+    <script src="coloring-game-script.js"></script>
+</body>
+</html>

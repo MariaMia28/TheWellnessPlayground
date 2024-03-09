@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Space+Mono&display=swap');
+
+* {
+    
+}
+
+.main-background {
+    background-image: url(images/background_index.jpg);
+    width: 100%;
+    height: auto;
+    background-color: #FFFFFF;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    
+    
+}
+
+.main-container div {
+    margin: 0 auto;
+    text-align: center;
+    /* margin-top: 5em; */
+}
+
+.main-container-text {
+    padding: 7rem;
+}
+
+.main-container-text h1 {
+    font-size: 2.5em;
+    font-weight: 900;
+    font-family: "Madimi One";
+    color: #47567B;
+}
+
+.main-container-text h2 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #47567B;
+    
+}
+
+.carousel {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+    gap: 50px;
+    justify-content: space-around;
+    margin-left: 120px;
+    margin-right: 120px;
+   
+   
+}
+
+.activity {
+    display: grid;
+    margin: 40px 0;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    
+    
+   
+}
+
+.activity img {
+    width: 100%;
+}
+
+.activity p {
+
+}
+
