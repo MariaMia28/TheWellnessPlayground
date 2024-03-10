@@ -1,31 +1,27 @@
-// Object to store audio elements
-const audioElements = {};
+document.addEventListener('DOMContentLoaded', function() {
+  const apiKey = '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'; // Replace 'YOUR_API_KEY' with your actual API key
+  const generateButton = document.getElementById('generateButton');
+  const musicPlayer = document.getElementById('musicPlayer');
 
-// Get all the checkboxes
-const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
-// Function to handle checkbox change
-function handleCheckboxChange() {
-  const instrument = this.id; // Get the id of the checkbox clicked
-
-  if (this.checked) {
-    // If checkbox is checked, create and play the audio
-    const audio = new Audio(`./audio/${instrument}.mp3`); // Create a new Audio object
-    audio.loop = true; // Set the audio to loop
-    audio.play(); // Play the audio
-    audioElements[instrument] = audio; // Store the audio element in the object
-  } else {
-    // If checkbox is unchecked, stop and remove the audio
-    const audio = audioElements[instrument]; // Retrieve the audio element from the object
-    if (audio) {
-      audio.pause(); // Pause the audio
-      audio.currentTime = 0; // Reset the audio to the beginning
-      delete audioElements[instrument]; // Remove the audio element from the object
-    }
-  }
-}
-
-// Add event listener to each checkbox
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', handleCheckboxChange);
+  generateButton.addEventListener('click', async function() {
+      try {
+          const response = await fetch('https://api.openai.com/v1/jukebox/token', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${apiKey}`
+              },
+              body: JSON.stringify({
+                  'model': 'gpt-4-0125',
+                  'length': 120  // Length of the generated music in seconds
+              })
+          });
+          const data = await response.json();
+          const audioUrl = data.url;
+          musicPlayer.src = audioUrl;
+          musicPlayer.play();
+      } catch (error) {
+          console.error('Error generating music:', error);
+      }
+  });
 });

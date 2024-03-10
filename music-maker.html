@@ -1,31 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Music Maker</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="main">
-      <div class="sfx">
-        <h1>Music Lab</h1>
-        <div class="sfx-bar">
-          <div>
-            <input type="checkbox" id="guitar" />
-            <label for="guitar">Guitar</label>
-            <input type="checkbox" id="piano" />
-            <label for="piano">Piano</label>
-            <input type="checkbox" id="drums" />
-            <label for="drums">Drums</label>
-            <input type="checkbox" id="cello" />
-            <label for="cello">Cello</label>
-            <input type="checkbox" id="harp" />
-            <label for="harp">Harp</label>
-          </div>
-        </div>
-      </div>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Music Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>AI Music Generator</h1>
+    <audio id="musicPlayer" controls>
+        <!-- Placeholder for the generated music -->
+        Your browser does not support the audio element.
+    </audio>
+    <button id="generateButton">Generate Music</button>
     <script src="music-maker-script.js"></script>
-  </body>
+</body>
 </html>
