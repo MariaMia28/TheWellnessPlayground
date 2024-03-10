@@ -123,4 +123,12 @@ document.addEventListener("DOMContentLoaded", function() {
           context.closePath();
       }
   }
+
+//   function saveImage() {
+//     var dataURL = canvas.toDataURL('image/jpg');
+//     var link = document.createElement('a');
+//     link.href = dataURL;
+//     link.download = 'drawing.jpg';
+//     link.click();
+// }
 });

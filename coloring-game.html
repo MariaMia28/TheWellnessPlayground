@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coloring</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Space+Mono&display=swap');
+
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            font-family: "Madimi One";
+            background-image: url(images/background_coloring_page.jpg) ;
+            color: purple;
+        }
+
         #canvas-container {
             display: none;
             text-align: center;
@@ -16,10 +28,11 @@
 
         #colorPalette {
             display: flex;
-            flex-direction: column;
+            gap: 10px;
+            flex-direction: row;
             position: fixed;
-            top: 20px;
-            left: 20px;
+            top: 7px;
+            left: 630px;
         }
 
         .palette-color {
@@ -28,56 +41,161 @@
             margin-bottom: 5px;
             cursor: pointer;
         }
+        
+        body {
+            background-image: url(images/background_coloring_page.jpg) ;
+            width: 100%;
+        }
+
+        .quiz {
+            width: 100%;
+        }
+
+        *{
+   box-sizing: border-box;}
+
+   /* .control-group button{
+        margin: 0 auto;
+        
+   }
+    */
+   
+
+
+
+body{
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0;
+	background-image: url("bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.quiz-container {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+  width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  justify-self: center;
+  align-self: center;
+}
+
+.quiz-header{
+	padding: 4rem;
+}
+
+
+h2 {
+  padding: 1rem;
+  text-align: center;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 25px;
+}
+
+ul li {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+ul li label {
+  cursor: pointer;
+}
+
+button {
+    background-color: #89a6e1;
+  color: #ffff;
+  border: none;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-family: inherit;
+  padding: 1.3rem;
+}
+
+
+button:focus {
+  outline: none;
+  
+}
+
+
+
 
         
     </style>
 </head>
 <body>
-    <div >
-        <h2 id="question">What are your feelings right now?<br>Choose the 3 main ones:</br></h2>
-       
-        <ul>
-            <li>
-                <input type="checkbox" name="answer" id="yellow" class="answer">
-                <label for="yellow" id="yellow_text">Happiness</label>
-            </li>
+    <div class="container">
+        
+
+        <div class="quiz-container">
+            <div class="quiz">
+                <h2 id="question">What are your feelings right now?<br>Choose the 3 main ones:</br></h2>
             
-            <li>
-                <input type="checkbox" name="answer" id="purple" class="answer">
-                <label for="purple" id="purple_text">Anxiety</label>
-            </li>
-            <li>
-                <input type="checkbox" name="answer" id="blue" class="answer">
-                <label for="blue" id="blue_text">Sadness</label>
-            </li>
-            <li>
-                <input type="checkbox" name="answer" id="green" class="answer">
-                <label for="green" id="green_text">Peace</label>
-            </li>
-            <li>
-                <input type="checkbox" name="answer" id="red" class="answer">
-                <label for="red" id="red_text">Anger</label>
-            </li>
-            <li>
-                <input type="checkbox" name="answer" id="orange" class="answer">
-                <label for="orange" id="orange_text">Excitement</label>
-            </li>
-            <li>
-                <input type="checkbox" name="answer" id="grey" class="answer">
-                <label for="grey" id="grey_text">Loneliness</label>
-            </li>
-            <li>
-                <input type="checkbox" name="answer" id="pink" class="answer">
-                <label for="pink" id="pink_text">Confidence</label>
-            </li>
-        </ul>
-        <button id="submitQuiz">Submit</button>
+                <ul>
+                    <li>
+                        <input type="checkbox" name="answer" id="yellow" class="answer">
+                        <label for="yellow" id="yellow_text">Happiness</label>
+                    </li>
+            
+                    <li>
+                        <input type="checkbox" name="answer" id="purple" class="answer">
+                        <label for="purple" id="purple_text">Anxiety</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="answer" id="blue" class="answer">
+                        <label for="blue" id="blue_text">Sadness</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="answer" id="green" class="answer">
+                        <label for="green" id="green_text">Peace</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="answer" id="red" class="answer">
+                        <label for="red" id="red_text">Anger</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="answer" id="orange" class="answer">
+                        <label for="orange" id="orange_text">Excitement</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="answer" id="grey" class="answer">
+                        <label for="grey" id="grey_text">Loneliness</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="answer" id="pink" class="answer">
+                        <label for="pink" id="pink_text">Confidence</label>
+                    </li>
+                </ul>
+                <button id="submitQuiz">Submit</button>
+            </div>
+        </div>
+        
+        <div id="canvas-container">
+            <canvas id="canvas"></canvas>
+            <div id="colorPalette"></div>
+        </div>
+        
     </div>
-    
-    <div id="canvas-container">
-        <canvas id="canvas"></canvas>
-        <div id="colorPalette"></div>
-    </div>
+    <!-- <footer>
+        <div class="control-group">
+            <input type="button" value="download" onclick="saveImage()">
+        </div>
+    </footer> -->
 
     <script src="coloring-game-script.js"></script>
 </body>
